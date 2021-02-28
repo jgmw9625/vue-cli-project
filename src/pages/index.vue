@@ -3,9 +3,8 @@ el-container.container-all
   el-aside Aside
   el-container.container
     el-header Header
-    el-main Main
-
-  router-view
+    el-main
+      router-view
 
 </template>
 
@@ -59,16 +58,12 @@ export default {
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
-    text-align: center;
-    line-height: 60px;
     height: 20% !important;
   }
 
   .el-aside {
     background-color: #D3DCE6;
     color: #333;
-    text-align: center;
-    line-height: 200px;
     width: 200px;
   }
 
@@ -76,8 +71,6 @@ export default {
     border-radius: 5px;
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
-    line-height: 160px;
     height: 77.5%;
     margin: 10px 10px 20px 10px;
   }
