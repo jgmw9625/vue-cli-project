@@ -7,13 +7,16 @@ el-container
     el-footer footer
 
   router-view
+
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'home-page',
   props: {
-    msg: String,
+
   },
 
   data () {
@@ -22,8 +25,18 @@ export default {
     }
   },
 
+  computed: {
+    ...mapState([
+      'count',
+    ]),
+  },
+
   created () {
 
+  },
+
+  mounted () {
+    console.log(this.count)
   },
 
 }
