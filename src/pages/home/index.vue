@@ -1,11 +1,11 @@
 <template lang="pug">
-  .div
-    el-input(value="123123")
+  .div home page
+    el-input(value="home page")
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'home',
   props: {
     msg: String,
   },
