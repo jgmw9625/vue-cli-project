@@ -1,10 +1,9 @@
 <template lang="pug">
-el-container
-  el-aside(width="20vw") Aside
-  el-container
+el-container.container-all
+  el-aside Aside
+  el-container.container
     el-header Header
     el-main Main
-    el-footer footer
 
   router-view
 
@@ -48,11 +47,21 @@ export default {
     padding: 0;
   }
 
+  .container-all {
+    display: flex;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
     text-align: center;
     line-height: 60px;
+    height: 20% !important;
   }
 
   .el-aside {
@@ -60,17 +69,22 @@ export default {
     color: #333;
     text-align: center;
     line-height: 200px;
+    width: 200px;
   }
 
   .el-main {
+    border-radius: 5px;
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 160px;
+    height: 77.5%;
+    margin: 10px 10px 20px 10px;
   }
 
   body > .el-container {
     margin-bottom: 40px;
+    height: 100%;
   }
 
   .el-container:nth-child(5) .el-aside,
