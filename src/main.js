@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import elementUI from 'element-ui'
-import index from './pages/index.vue'
+import index from './index.vue'
 import router from './route/index'
 import store from './store/index'
 

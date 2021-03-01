@@ -1,10 +1,10 @@
 <template lang="pug">
-  .div aside
+  .div headerPage
 </template>
 
 <script>
 export default {
-  name: 'asidePage',
+  name: 'headerPage',
 
 }
 </script>

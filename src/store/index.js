@@ -5,11 +5,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0,
+    isLogin: false,
   },
   mutations: {
-    increment (state) {
-      state.count += 1
+    isLogin (state) {
+      state.isLogin = !state.isLogin
     },
   },
 })

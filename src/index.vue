@@ -1,11 +1,51 @@
 <template lang="pug">
-  .div
-    el-input(value="123123")
+login(v-if="!isLogin")
+el-container.container-all(v-else)
+  el-aside
+    .div Aside here
+  el-container.container
+    el-header
+      .div Header here
+    el-main
+      router-view
+
 </template>
 
 <script>
+import login from '@/pages/login/index.vue'
+import { mapState } from 'vuex'
+
 export default {
-  name: 'index',
+  name: 'index-page',
+
+  components: {
+    login,
+  },
+
+  props: {
+
+  },
+
+  data () {
+    return {
+    }
+  },
+
+  watch: {
+  },
+
+  computed: {
+    ...mapState([
+      'isLogin',
+    ]),
+  },
+
+  created () {
+  },
+
+  mounted () {
+  },
+
 }
 </script>
 
@@ -13,6 +53,49 @@ export default {
   * {
     margin: 0;
     padding: 0;
+  }
+
+  .container-all {
+    display: flex;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    height: 20% !important;
+  }
+
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    width: 200px;
+  }
+
+  .el-main {
+    border-radius: 5px;
+    background-color: #E9EEF3;
+    color: #333;
+    height: 77.5%;
+    margin: 10px 10px 20px 10px;
+  }
+
+  body > .el-container {
+    margin-bottom: 40px;
+    height: 100%;
+  }
+
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
   }
 
 </style>

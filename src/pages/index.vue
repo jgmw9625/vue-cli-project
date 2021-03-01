@@ -1,8 +1,10 @@
 <template lang="pug">
 el-container.container-all
   el-aside Aside
+    router-view(name="aside")
   el-container.container
     el-header Header
+      router-view(name="header")
     el-main
       router-view
 
@@ -34,7 +36,6 @@ export default {
   },
 
   mounted () {
-    console.log(this.count)
   },
 
 }
@@ -73,6 +74,7 @@ export default {
     color: #333;
     height: 77.5%;
     margin: 10px 10px 20px 10px;
+    padding: 15px;
   }
 
   body > .el-container {
