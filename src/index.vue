@@ -2,10 +2,10 @@
 login(v-if="!isLogin")
 el-container.container-all(v-else)
   el-aside
-    .div Aside here
+    aside-page
   el-container.container
     el-header
-      .div Header here
+      header-page
     el-main
       router-view
 
@@ -14,12 +14,16 @@ el-container.container-all(v-else)
 <script>
 import login from '@/pages/login/index.vue'
 import { mapState } from 'vuex'
+import asidePage from '@/components/aside-page.vue'
+import headerPage from '@/components/header-page.vue'
 
 export default {
   name: 'index-page',
 
   components: {
     login,
+    asidePage,
+    headerPage,
   },
 
   props: {

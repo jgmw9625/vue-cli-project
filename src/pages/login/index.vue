@@ -59,7 +59,7 @@ export default {
       ) {
         store.commit('isLogin')
       } else {
-        this.$message('这是一条消息提示')
+        this.$message('帳號或密碼錯誤')
       }
     },
   },

@@ -5,11 +5,12 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    isLogin: false,
+    isLogin: false || localStorage.getItem('loginkey'),
   },
   mutations: {
     isLogin (state) {
       state.isLogin = !state.isLogin
+      localStorage.setItem('loginkey', state.isLogin)
     },
   },
 })
