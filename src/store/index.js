@@ -10,7 +10,8 @@ const store = new Vuex.Store({
   mutations: {
     isLogin (state) {
       state.isLogin = !state.isLogin
-      localStorage.setItem('loginkey', state.isLogin)
+      if (state.isLogin)localStorage.setItem('loginkey', state.isLogin)
+      else localStorage.removeItem('loginkey')
     },
   },
 })

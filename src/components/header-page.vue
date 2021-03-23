@@ -1,14 +1,34 @@
 <template lang="pug">
-  .div headerPage
+  .header-page
+    el-button(@click="handleLogout" type="primary") 登出
+
 </template>
 
 <script>
-export default {
-  name: 'headerPage',
+import { mapState } from 'vuex'
+import store from '@/store/index'
 
+export default {
+  name: 'header-page',
+
+  computed: {
+    ...mapState([
+      'isLogin',
+    ]),
+  },
+
+  methods: {
+    handleLogout () {
+      store.commit('isLogin')
+    },
+  },
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.header-page {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
 </style>

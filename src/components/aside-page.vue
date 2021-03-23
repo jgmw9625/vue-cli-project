@@ -4,104 +4,44 @@
     default-active="2"
     background-color="#545c64"
     text-color="#fff"
-    @open="handleOpen"
-    @close="handleClose"
+    unique-opened
   )
 
     h1.title title
 
-    el-submenu(v-for="(item, index) in menuList" :index="index.toString()")
+    el-submenu(v-for="(item, index) in MENULIST" :index="index.toString()")
       template(slot="title") {{ item.label }}
       el-menu-item(
         v-for="(sunItem, subIndex) in item.children"
         :index="index.toString() + subIndex.toString()"
+        @click="handleMenuClick($event, sunItem.component)"
       ) {{ sunItem.label }}
 
 </template>
 
 <script>
+import { MENULIST } from '@/config/site'
+
 export default {
   name: 'aside-page',
 
   data () {
     return {
-      menuList: [],
+      MENULIST,
     }
   },
 
-  async created () {
-    await this.init()
-  },
-
   methods: {
-    init () {
-      this.setMenuList()
-    },
-
-    setMenuList () {
-      this.menuList = [
-        {
-          value: 1,
-          label: 'label1',
-          children: [
-            {
-              value: 11,
-              label: 'label11',
-            },
-            {
-              value: 12,
-              label: 'label12',
-            },
-          ],
-        },
-        {
-          value: 2,
-          label: 'label2',
-          children: [
-            {
-              value: 21,
-              label: 'label21',
-            },
-          ],
-        },
-        {
-          value: 3,
-          label: 'label3',
-          children: [
-            {
-              value: 31,
-              label: 'label31',
-            },
-          ],
-        },
-        {
-          value: 4,
-          label: 'label4',
-          children: [
-            {
-              value: 41,
-              label: 'label41',
-            },
-          ],
-        },
-        {
-          value: 5,
-          label: 'label5',
-          children: [
-            {
-              value: 51,
-              label: 'label51',
-            },
-          ],
-        },
-      ]
-    },
-
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
+    handleMenuClick (e, route) {
+      if (route && this.$route.name !== `/${route}`) {
+        this.$router.push({
+          name: '/demo/to-do-list',
+        })
+      } else if (route === undefined && this.$route.name !== '/') {
+        this.$router.push({
+          name: '/',
+        })
+      }
     },
   },
 }
