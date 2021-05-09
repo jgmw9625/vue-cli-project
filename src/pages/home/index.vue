@@ -1,6 +1,6 @@
 <template lang="pug">
-  .div home page
-    el-input(value="home page")
+.home home page
+  el-input(value="home page")
 </template>
 
 <script>

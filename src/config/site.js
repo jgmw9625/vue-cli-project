@@ -8,7 +8,7 @@ export const MENULIST = [
     label: 'demo',
     children: [
       { value: 11, label: 'label11', component: 'demo/to-do-list' },
-      { value: 12, label: 'label12' },
+      { value: 12, label: 'label12', component: 'demo/test' },
     ],
   },
   {

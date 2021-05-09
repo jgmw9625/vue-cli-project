@@ -7,7 +7,7 @@
     unique-opened
   )
 
-    h1.title title
+    router-link.title(:to="{name: 'home'}") title
 
     el-submenu(v-for="(item, index) in MENULIST" :index="index.toString()")
       template(slot="title") {{ item.label }}
@@ -33,9 +33,9 @@ export default {
 
   methods: {
     handleMenuClick (e, route) {
-      if (route && this.$route.name !== `/${route}`) {
+      if (route && this.$route.name !== `${route}`) {
         this.$router.push({
-          name: '/demo/to-do-list',
+          name: `${route}`,
         })
       } else if (route === undefined && this.$route.name !== '/') {
         this.$router.push({

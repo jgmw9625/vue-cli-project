@@ -1,38 +1,50 @@
 <template lang="pug">
-el-container.container-all
-  el-aside Aside
-    router-view(name="aside")
+login(v-if="!isLogin")
+el-container.container-all(v-else)
+  el-aside
+    aside-page
   el-container.container
-    el-header Header
-      router-view(name="header")
+    el-header
+      header-page
     el-main
       router-view
 
 </template>
 
 <script>
+import login from '@/pages/login/index.vue'
 import { mapState } from 'vuex'
+import asidePage from '@/components/aside-page.vue'
+import headerPage from '@/components/header-page.vue'
 
 export default {
-  name: 'home-page',
+  name: 'index-page',
+
+  components: {
+    login,
+    asidePage,
+    headerPage,
+  },
+
   props: {
 
   },
 
   data () {
     return {
-      data: {},
     }
+  },
+
+  watch: {
   },
 
   computed: {
     ...mapState([
-      'count',
+      'isLogin',
     ]),
   },
 
   created () {
-
   },
 
   mounted () {
@@ -74,7 +86,7 @@ export default {
     color: #333;
     height: 77.5%;
     margin: 10px 10px 20px 10px;
-    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
   }
 
   body > .el-container {

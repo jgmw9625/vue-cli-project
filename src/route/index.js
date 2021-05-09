@@ -1,18 +1,60 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import homePage from '@/pages/home/index.vue'
-import toDoList from '@/pages/demo/to-do-list/index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/home', component: homePage, name: '/home' },
-  { path: '/demo/to-do-list', component: toDoList, name: '/demo/to-do-list' },
-  { path: '*', component: homePage },
+  // {
+  //   path: '/',
+  //   redirect: { name: 'home' },
+  //   component: () => import('@/pages'),
+  //   children: [
+  //     // { path: '/', component: () => import('@/pages/home') },
+
+  //     // {
+  //     //   path: '/demo/to-do-list',
+  //     //   component: () => import('@/pages/demo/to-do-list/index.vue'),
+  //     //   name: '/demo/to-do-list',
+  //     // },
+
+  //     // {
+  //     //   path: '/demo/test',
+  //     //   component: () => import('@/pages/demo/test/index.vue'),
+  //     //   name: '/demo/test',
+  //     // },
+  //   ],
+  // },
+
+  {
+    path: '/',
+    component: () => import('@/pages/home/index.vue'),
+    name: '/',
+  },
+  {
+    path: '/demo/to-do-list',
+    component: () => import('@/pages/demo/to-do-list/index.vue'),
+    name: 'demo/to-do-list',
+  },
+  {
+    path: '/demo/test',
+    component: () => import('@/pages/demo/test/index.vue'),
+    name: 'demo/test',
+  },
+  {
+    path: '*',
+    redirect: { name: '/' },
+  },
 ]
 
 const router = new VueRouter({
   routes,
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0,
+    }
+  },
+  linkExactActiveClass: 'active',
 })
 
 export default router
